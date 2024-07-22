@@ -1,0 +1,102 @@
+---
+import css from "../images/css-3.png";
+import html from "../images/html.png";
+import javascript from "../images/java-script.png";
+import typescript from "../images/mecanografiado.png";
+import react from "../images/react.png";
+import express from "../images/Express.png";
+import nextjs from "../images/Next.js.png";
+import nodejs from "../images/nodejs.png";
+import tailwindcss from "../images/Tailwind CSS.png";
+
+const Tecnologias = {
+  html: html.src,
+  css: css.src,
+  javascript: javascript.src,
+  typescript: typescript.src,
+  react: react.src,
+  express: express.src,
+  nextjs: nextjs.src,
+  nodejs: nodejs.src,
+  tailwind: tailwindcss.src,
+};
+---
+
+<div class="container">
+  <ul class="track">
+    {
+      Object.entries(Tecnologias).map(([k, v]) => (
+        <li>
+          <h3>{k}</h3>
+          <img src={v} alt={`icono de ${k}`} />
+        </li>
+      ))
+    }
+    {
+      Object.entries(Tecnologias).map(([k, v]) => (
+        <li>
+          <h3>{k}</h3>
+          <img src={v} alt={`icono de ${k}`} />
+        </li>
+      ))
+    }
+    {
+      Object.entries(Tecnologias).map(([k, v]) => (
+        <li>
+          <h3>{k}</h3>
+          <img src={v} alt={`icono de ${k}`} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+<style>
+  h3 {
+    color: rgba(88, 231, 241, 1);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 10px;
+  }
+  img {
+    object-fit: cover;
+    width: 2rem;
+    height: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container {
+    overflow: hidden;
+    position: relative;
+    height: 75%;
+    border-color: #4b5563;
+    min-width: 100vw;
+  }
+  .track {
+    display: flex;
+    position: absolute;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    width: 200vw;
+    height: 100%;
+    animation: slide 25s linear infinite;
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  @keyframes slide {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -150%;
+    }
+  }
+</style>

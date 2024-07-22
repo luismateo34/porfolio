@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProgramCard from "../components/presentacion.astro";
+import SectionOne from "../components/sectionOne.astro";
+import SectionTwo from "../components/sectionTwo.astro";
+import NavBar from "../components/navbar.astro"
+---
+
+<Layout title="Portafolio web">
+  <ProgramCard />
+  <main
+    class="flex flex-col items-center snap-y snap-mandatory w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
+    >
+    <NavBar/>
+    <div class="snap-center">
+      <SectionOne />
+    </div>
+    <div class="snap-center">
+      <SectionTwo/>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>

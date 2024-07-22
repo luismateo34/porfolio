@@ -1,0 +1,136 @@
+---
+import image1000 from "../images/coder1000.jpg";
+import image600 from "../images/coder600.jpg";
+import image800 from "../images/coder800.jpg";
+import "animate.css";
+---
+
+<div class="container animate__animated animation z-30" id="container">
+  <picture>
+    <source srcset={image600.src} media="(max-width:600px)" type="image/jpg" />
+    <source srcset={image800.src} media="(max-width:800px)" type="image/jpg" />
+    <img
+      src={image1000.src}
+      width={image1000.width}
+      height={image1000.height}
+      loading="eager"
+      alt="imagen de codigo"
+    />
+  </picture>
+</div>
+<div class="container2 flex flex-col items-center justify-center z-20" id="container2">
+  <span class="loading">Loading... </span>
+  <div class="loader"></div>
+</div>
+<style>
+  .loading {
+    color:rgba(244, 188, 82, 1) ;
+    margin-bottom: 2rem ;
+    font-size: 2rem;
+    font-style: italic;
+  }
+  .container {
+    z-index: 10;
+    min-width: 100%;
+    height: 100vh;
+    position: absolute;
+    inset: 0;
+    background: rgba(18, 19, 56, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .animation {
+    animation: fadeOutDown 700ms 1500ms both;
+  }
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #FFF #FFF transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #FF3D00 #FF3D00;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 32px;
+  height: 32px;
+  border-color: #FFF #FFF transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+  .container2 {
+    z-index: 40;
+    min-width: 100%;
+    height: 100vh;
+    position: absolute;
+    inset: 0;
+    background: rgba(18, 19, 56, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fade 600ms 600ms both;
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+  .hidden {
+    display:none;
+  }
+</style>
+<script>
+  const container = document.getElementById("container") as HTMLElement;
+  const container2 = document.getElementById("container2") as HTMLElement;
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      container.classList.add("hidden");
+      container2.classList.add("hidden");
+    }, 2000)
+  });
+</script>

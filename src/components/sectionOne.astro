@@ -1,0 +1,57 @@
+---
+import Slider from "./slider.astro";
+import dev from "../images/2coder-escalar.jpg"
+import { Tecnologias } from "./tecnologies";
+import { Listec } from "./listec.tsx";
+---
+
+<section>
+  <div
+    class="col-start-2 col-end-5 md:col-end-4 row-start-2 row-end-4 flex flex-col justify-start items-start"
+  >
+    <span class="text-sm italic text-orange-600">
+      Desarrollo web frontend y backend
+    </span>
+    <h1 class="text-left md:text-center">Luis Mateo Piñeiro</h1>
+    <h2 class="subtitle text-left md:text-center">Web Developer</h2>
+    <p class="text-sm text-gray-300">
+      Soy desarrollador de Software y me dedico a crear aplicaciones web
+      utilizando tecnologias solidas y robustas para potenciar los negocios de
+      los clientes sin sacrificar la seguridad y la estabilidad
+    </p>
+  </div>
+  <div class="hidden  md:col-start-4 md:col-end-6  row-start-2 row-end-4 md:flex flex-row justify-center ">
+   <img alt="images de web developer" src={dev.src} class="object-contain  " />
+    </div>
+  <div
+    class="col-start-1 col-end-6 row-start-4 row-end-5 lg:flex lg:flex-col hidden lg:items-center lg:justify-end w-screen "
+  >
+    <Slider />
+  </div>
+
+  <Tecnologias client:media="(max-width: 1024px)" />
+  <Listec client:media="(max-width: 1024px)" />
+</section>
+<style>
+  h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: rgba(235, 236, 193, 1);
+  }
+  .subtitle {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 1em;
+    color: rgba(226, 226, 226, 1);
+  }
+  section {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+  }
+</style>
