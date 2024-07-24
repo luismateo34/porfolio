@@ -62,20 +62,20 @@ export const SliderTwo = () => {
       </div>
       <div className={`${section2.containbutton}`}>
         <button
-	  className={ `${ count === 0 ? section2.disable  : section2.button } md:w-36` }
+          className={`${count === 0 ? section2.disable : section2.button} md:w-36`}
           onClick={() => {
-            count === 0 ? reorder() : left();
+            left();
           }}
-	  disabled={count === 0}
+          disabled={count === 0}
         >
           izquierda
         </button>
         <button
-	  className={ `${ count === arrImg.length - 1 ? section2.disable : section2.button } md:w-36 `}
+          className={`${count === arrImg.length - 1 ? section2.disable : section2.button} md:w-36 `}
           onClick={() => {
             right();
           }}
-	  disabled={count === arrImg.length - 1}
+          disabled={count === arrImg.length - 1}
         >
           derecha
         </button>
