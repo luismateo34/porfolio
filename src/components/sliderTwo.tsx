@@ -18,6 +18,7 @@ export const SliderTwo = () => {
   const transformCSS = ref.current?.firstElementChild?.scrollWidth ?? 0;
   const [count, setCount] = useState<number>(0);
   const [style, setStyle] = useState<CSSStyleDeclaration | null>(null);
+  const [arr, setArr] = useState<typeof arrImg>(arrImg);
 
   const TransformValue = () => {
     if (style !== null) {
@@ -29,52 +30,48 @@ export const SliderTwo = () => {
   };
   const right = () => {
     const value = TransformValue();
-    style?.setProperty("--transition", "transform 1s");
+    style?.setProperty("--transition", "transform 400ms");
     style?.setProperty("--slide-transform", `${value - transformCSS}px`);
     setCount((prev) => prev + 1);
   };
 
   const left = () => {
     const value = TransformValue();
-    style?.setProperty("--transition", "transform 1s");
+    style?.setProperty("--transition", "transform 400ms");
     style?.setProperty("--slide-transform", `${value + transformCSS}px`);
     setCount((prev) => prev - 1);
   };
-    useEffect(() => {
+
+  useEffect(() => {
     const styleCss = globalThis.document.documentElement.style;
     setStyle(styleCss);
   }, []);
 
   return (
-    <div className={`bg-transparent  ${section2.contain} w-screen md:w-[50vw] `}>
-      <div
-        className={`${section2.containimg}`}
-        ref={ref}
-      >
-        {arrImg.map(([k, v]) => {
+    <div
+      className={`bg-transparent  ${section2.contain} w-screen md:w-[50vw] `}
+    >
+      <div className={`${section2.containimg}`} ref={ref}>
+        {arr.map(([k, v]) => {
           return (
             <div className={`${section2.imgconten} rounded-md`} key={k}>
-              <img
-                alt={k}
-                className={`${section2.img} rounded-md`}
-                src={v}
-              />
+              <img alt={k} className={`${section2.img} rounded-md`} src={v} />
             </div>
           );
         })}
       </div>
       <div className={`${section2.containbutton}`}>
         <button
-          className={ `${ count === 0 ? section2.disable  : section2.button } md:w-36` }
+	  className={ `${ count === 0 ? section2.disable  : section2.button } md:w-36` }
           onClick={() => {
-            left();
+            count === 0 ? reorder() : left();
           }}
-          disabled={count === 0}
+	  disabled={count === 0}
         >
           izquierda
         </button>
         <button
-          className={ `${ count === arrImg.length - 1 ? section2.disable : section2.button } md:w-36 `}
+	  className={ `${ count === arrImg.length - 1 ? section2.disable : section2.button } md:w-36 `}
           onClick={() => {
             right();
           }}

@@ -1,10 +1,43 @@
-<div
-  class="w-screen flex flex-row sticky top-0 p-0 m-0  text-orange-300"
->
-  <ul class="flex w-full flex-row justify-around">
-    <li><a href="#proyect">proyect </a></li>
-    <li><a href="#"> github</a></li>
-    <li><a href="#">instagram</a></li>
-    <li><a href="#">linkedin</a></li>
+---
+import github from "../images/github.png";
+import instagram from "../images/instagram.png";
+import email from "../images/email.png";
+import linkedin from "../images/linkedin.png";
+---
+
+<div class="w-screen h-10 flex flex-row fixed top-0 p-0 m-0 text-orange-300">
+  <ul class="flex w-screen flex-row justify-between gap-2 p-2">
+    <li>
+      <a href="https://github.com/luismateo34" target="_blank">
+        <img alt="github" src={github.src} />
+      </a>
+    </li>
+    <li>
+      <details class="flex flex-col w-full h-full items-center">
+        <summary class="flex flex-col w-full h-full">
+          <img alt="instagram icon" src={instagram.src} />
+        </summary>
+        <p class="flex flex-row justify-center">luismateopineiro34</p>
+      </details>
+    </li>
+    <li>
+      <a href=" https://www.linkedin.com/in/luis-mateo-piñeiro-34arg/ "
+        ><img alt="linkedin icon" src={linkedin.src} /></a>
+    </li>
+    <li>
+      <details class="flex flex-col w-full h-full items-center">
+        <summary class="flex flex-col w-full h-full">
+          <img alt="email icon" src={email.src} />
+        </summary>
+        <p class="flex flex-row justify-center">luismateo_34@gmail.com</p>
+      </details>
+    </li>
   </ul>
 </div>
+<style>
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+</style>
