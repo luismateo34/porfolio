@@ -18,7 +18,6 @@ export const SliderTwo = () => {
   const transformCSS = ref.current?.firstElementChild?.scrollWidth ?? 0;
   const [count, setCount] = useState<number>(0);
   const [style, setStyle] = useState<CSSStyleDeclaration | null>(null);
-  const [arr, setArr] = useState<typeof arrImg>(arrImg);
 
   const TransformValue = () => {
     if (style !== null) {
@@ -52,7 +51,7 @@ export const SliderTwo = () => {
       className={`bg-transparent  ${section2.contain} w-screen md:w-[50vw] `}
     >
       <div className={`${section2.containimg}`} ref={ref}>
-        {arr.map(([k, v]) => {
+        {arrImg.map(([k, v]) => {
           return (
             <div className={`${section2.imgconten} rounded-md`} key={k}>
               <img alt={k} className={`${section2.img} rounded-md`} src={v} />
