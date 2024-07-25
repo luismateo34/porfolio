@@ -16,6 +16,7 @@ export default [
       "node_modules/*", // ignore its content
     ],
   },
+  // react config
   { files:["**/*.{ ts,tsx}"],
 
    languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } } ,
