@@ -1,41 +1,69 @@
-# Astro Starter Kit: Basics
+# Porfolio web developer
+## Designed with Astro JS
 
 ```sh
-npm create astro@latest -- --template basics
+git clone https://github.com/luismateo34/porfolio.git
+cd porfolio
+npm install
+or
+pnpm install
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
+Inside my projecti, you'll see the following folders and files:
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+.
+├── eslint.config.js
+├── package.json
+├── public
+│   └── favicon.svg
+├── src
+│   ├── components
+│   │   ├── listec.tsx
+│   │   ├── navbar.astro
+│   │   ├── presentacion.astro
+│   │   ├── sectionOne.astro
+│   │   ├── sectionTwo.astro
+│   │   ├── slider.astro
+│   │   ├── sliderTwo.tsx
+│   │   ├── style
+│   │   │   └── section2.module.css
+│   │   └── tecnologies.tsx
+│   ├── env.d.ts
+│   ├── images
+│   │   ├── 2coder-escalar.jpg
+│   │   ├── coder1000.jpg
+│   │   ├── coder600.jpg
+│   │   ├── coder800.jpg
+│   │   ├── css-3.png
+│   │   ├── email.png
+│   │   ├── Express.png
+│   │   ├── github.png
+│   │   ├── html.png
+│   │   ├── imagastro.png
+│   │   ├── instagram.png
+│   │   ├── java-script.png
+│   │   ├── linkedin.png
+│   │   ├── mecanografiado.png
+│   │   ├── nextjs
+│   │   │   ├── nextjs-page2.png
+│   │   │   ├── nextjs-page3.png
+│   │   │   ├── nextjs-page-4.png
+│   │   │   └── nextjs-page.png
+│   │   ├── Next.js.png
+│   │   ├── nodejs.png
+│   │   ├── react.png
+│   │   └── Tailwind CSS.png
+│   ├── layouts
+│   │   └── Layout.astro
+│   ├── pages
+│   │   └── index.astro
+│   └── store
+│       └── show.ts
+├── tailwind.config.mjs
+└── tsconfig.json
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
