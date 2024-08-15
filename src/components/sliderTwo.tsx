@@ -40,7 +40,7 @@ export const SliderTwo = () => {
     style?.setProperty("--slide-transform", `${value + transformCSS}px`);
     setCount((prev) => prev - 1);
   };
-
+// por causa del ssr, se deve inicializar el la referencia al objeo window y pasarla a un estado
   useEffect(() => {
     const styleCss = globalThis.document.documentElement.style;
     setStyle(styleCss);
