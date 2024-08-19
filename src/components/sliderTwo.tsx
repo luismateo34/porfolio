@@ -67,7 +67,7 @@ export const SliderTwo = () => {
           }}
           disabled={count === 0}
         >
-          izquierda
+          &lt; &lt;
         </button>
         <button
           className={`${count === arrImg.length - 1 ? section2.disable : section2.button} md:w-36 `}
@@ -76,7 +76,7 @@ export const SliderTwo = () => {
           }}
           disabled={count === arrImg.length - 1}
         >
-          derecha
+          &gt; &gt;
         </button>
       </div>
     </div>
