@@ -1,0 +1,103 @@
+---
+import "./style/section2.css";
+import img1 from "../images/nextjs/nextjs-page.png";
+import img2 from "../images/nextjs/nextjs-page2.png";
+import img3 from "../images/nextjs/nextjs-page3.png";
+import img4 from "../images/nextjs/nextjs-page-4.png";
+const images = {
+  "imagen 1 next js": img1.src,
+  "imagen 2 next js": img2.src,
+  "imagen 3 next js": img3.src,
+  "imagen 4 next js": img4.src,
+};
+const arrImg = Object.entries(images);
+---
+<div class="bg-transparen contain w-screen md:w-[50vw]">
+  <div class="containimg" id="slider">
+    {
+      arrImg.map(([k, v]) => (
+        <div class="imgconten rounded-md slider_element">
+          <img alt={k} class="img rounded-md" src={v} />
+        </div>
+      ))
+    }
+  </div>
+  <div class="containbutton">
+    <button id="left" class="button md:w-36"> &lt; &lt; </button>
+    <button id="right" class="button md:w-36"> &gt; &gt; </button>
+  </div>
+</div>
+<script>
+  const slider = document.getElementById("slider");
+  const buttonLeft = document.getElementById("left");
+  const buttonRight = document.getElementById("right");
+  const sliderElements = document.querySelectorAll(".slider_element");
+  const Styles = document.documentElement.style;
+  //------
+  let counter = 0;
+  let isInTransition = false;
+  //------
+  enum DIRECTION {
+    RIGHT = "RIGHT",
+    LEFT = "LEFT",
+  }
+  //-----
+  const getNumberValue = () =>
+    Number(Styles.getPropertyValue("--slide-transform").replace("px", ""));
+  //-----
+  const reorderSlide = () => {
+    const transformValue = getNumberValue();
+    Styles.setProperty("--transition", "none");
+    const firstElement = slider?.firstElementChild!;
+    const lastElement = slider?.lastElementChild!;
+    if (counter === sliderElements.length - 1) {
+      slider?.appendChild(firstElement);
+      Styles.setProperty(
+        "--slide-transform",
+        `${transformValue + sliderElements[counter].scrollWidth}px`,
+      );
+      counter--;
+    } else if (counter === 0) {
+      slider?.prepend(lastElement);
+      Styles.setProperty(
+        "--slide-transform",
+        `${transformValue - sliderElements[counter].scrollWidth}px`,
+      );
+      counter++;
+    }
+    isInTransition = false;
+  };
+  //-----
+  const sliderToleft = (value: number) => {
+    Styles.setProperty(
+      "--slide-transform",
+      `${value + sliderElements[counter].scrollWidth}px`,
+    );
+  };
+  //-----
+  const sliderToright = (value: number) => {
+    Styles.setProperty(
+      "--slide-transform",
+      `${value - sliderElements[counter].scrollWidth}px`,
+    );
+  };
+  //-----
+  const slideMove = (direction: DIRECTION) => {
+    if (isInTransition) return;
+    const value = getNumberValue();
+    Styles.setProperty("--transition", "transform 1s");
+    isInTransition = true;
+    if (direction === DIRECTION.LEFT) {
+      sliderToleft(value);
+      counter--;
+    } else if (direction === DIRECTION.RIGHT) {
+      sliderToright(value);
+      counter++;
+    }
+  };
+  //-----
+  buttonLeft?.addEventListener("click", () => slideMove(DIRECTION.LEFT));
+  buttonRight?.addEventListener("click", () => slideMove(DIRECTION.RIGHT));
+  slider?.addEventListener("transitionend",()=>{ reorderSlide()})
+  reorderSlide()
+</script>
